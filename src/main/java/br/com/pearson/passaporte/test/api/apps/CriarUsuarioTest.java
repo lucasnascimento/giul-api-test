@@ -26,7 +26,7 @@ public class CriarUsuarioTest {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		UsuarioDTO usuario = new UsuarioDTO("Saulo Brust - Teste", "brust3", "1234");
-		ClassificacaoDTO classificacao = new ClassificacaoDTO(878L, 52L, 17L);
+		ClassificacaoDTO classificacao = new ClassificacaoDTO(1125L, 53L, 17L);
 		usuario.addClassificacao(classificacao);
 		String request = mapper.writeValueAsString(usuario);
 		String grupoEconomico = "13";
