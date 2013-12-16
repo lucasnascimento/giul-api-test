@@ -6,6 +6,13 @@ public class ClassificacaoDTO {
 	private Long perfilEscola;
 	private Long escola;
 	
+	public ClassificacaoDTO(Long estrutra, Long perfilEscola, Long escola) {
+		super();
+		this.estrutra = estrutra;
+		this.perfilEscola = perfilEscola;
+		this.escola = escola;
+	}
+	
 	public Long getEstrutra() {
 		return estrutra;
 	}

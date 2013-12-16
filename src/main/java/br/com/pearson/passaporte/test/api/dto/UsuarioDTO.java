@@ -41,6 +41,17 @@ public class UsuarioDTO {
 		super();
 	}
 
+	public UsuarioDTO(String nome, String login, String password) {
+		super();
+		this.nome = nome;
+		this.login = login;
+		this.password = password;
+	}
+	
+	public void addClassificacao(ClassificacaoDTO classificacao) {
+		classificacoes.add(classificacao);
+	}
+
 	public Long getId() {
 		return id;
 	}
