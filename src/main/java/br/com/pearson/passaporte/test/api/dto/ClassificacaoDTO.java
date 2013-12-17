@@ -2,34 +2,40 @@ package br.com.pearson.passaporte.test.api.dto;
 
 public class ClassificacaoDTO {
 
-	private Long estrutra;
-	private Long perfilEscola;
-	private Long escola;
+	private ObjectId estrutura;
+	private ObjectId perfilEscola;
+	private ObjectId escola;
 	
 	public ClassificacaoDTO(Long estrutra, Long perfilEscola, Long escola) {
 		super();
-		this.estrutra = estrutra;
-		this.perfilEscola = perfilEscola;
-		this.escola = escola;
+		this.estrutura = new ObjectId(estrutra);
+		this.perfilEscola = new ObjectId(perfilEscola);
+		this.escola = new ObjectId(escola);
 	}
-	
-	public Long getEstrutra() {
-		return estrutra;
+
+	public ObjectId getEstrutura() {
+		return estrutura;
 	}
-	public void setEstrutra(Long estrutra) {
-		this.estrutra = estrutra;
+
+	public void setEstrutura(ObjectId estrutura) {
+		this.estrutura = estrutura;
 	}
-	public Long getPerfilEscola() {
+
+	public ObjectId getPerfilEscola() {
 		return perfilEscola;
 	}
-	public void setPerfilEscola(Long perfilEscola) {
+
+	public void setPerfilEscola(ObjectId perfilEscola) {
 		this.perfilEscola = perfilEscola;
 	}
-	public Long getEscola() {
+
+	public ObjectId getEscola() {
 		return escola;
 	}
-	public void setEscola(Long escola) {
+
+	public void setEscola(ObjectId escola) {
 		this.escola = escola;
 	}
+
 	
 }

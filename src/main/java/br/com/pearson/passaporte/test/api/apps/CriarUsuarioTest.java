@@ -11,8 +11,8 @@ import br.com.pearson.passaporte.test.api.dto.UsuarioDTO;
 
 public class CriarUsuarioTest {
 	
-	public static final String TOKEN = "e2141ea2-5278-4acc-8a5d-c90a00a4eaa7";
-	public static final String SECRET = "SJFaVSpzJFca69lbmQ6KdaW3%2F94ATkLsmFZC25m41ZJ4NYUotLX7grRGnnzKn8EeoEj1Td7OcWbgW%2FCIkbAnO4xqqzcDHnWFZ7yJ4I2MFW0%3D";
+	public static final String TOKEN = "1c34b515-e3da-44bf-8594-d512db95b2f0";
+	public static final String SECRET = "RgAU2d3OeaaRWmqsW2udY%2Bf%2FBrOZmz9DSy9z5%2FOm3qJ4VhTJNODogVprA1t2ocSVShSkZlNK2VlHxs8lmZT%2B0qIZJjqOBdYrGQhUQuvnfBQ%3D";
 	public static final String BASE_URL = "http://coc.dclick.com.br/giul/api";
 
 	public static void main(String[] args) throws Exception {
@@ -32,7 +32,6 @@ public class CriarUsuarioTest {
 		
 		String result = apiCall.put("/usuario", request, null, consumer, accessToken);
 		System.out.println(result);
-
 	}
 
 }
