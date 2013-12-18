@@ -11,8 +11,8 @@ import br.com.pearson.passaporte.test.api.dto.UsuarioDTO;
 
 public class CriarUsuarioTest {
 	
-	public static final String TOKEN = "1c34b515-e3da-44bf-8594-d512db95b2f0";
-	public static final String SECRET = "RgAU2d3OeaaRWmqsW2udY%2Bf%2FBrOZmz9DSy9z5%2FOm3qJ4VhTJNODogVprA1t2ocSVShSkZlNK2VlHxs8lmZT%2B0qIZJjqOBdYrGQhUQuvnfBQ%3D";
+	public static final String TOKEN = "666e7ddf-fc3a-461b-8026-d3965ed72112";
+	public static final String SECRET = "c7iCIsmKosyNCjeoFEyWLYQDMK7nUc25IuTtUOQEbjLTE8oR93%2BfDuOTUDNDiWO%2FkVHLa46REu72F28s340HZqpT4EXxyoe9vPq8fgOanjs%3D";
 	public static final String BASE_URL = "http://coc.dclick.com.br/giul/api";
 
 	public static void main(String[] args) throws Exception {
@@ -21,11 +21,11 @@ public class CriarUsuarioTest {
 		OAuthToken accessToken = new OAuthToken(TOKEN, SECRET, TokenType.ACCESS);
 		ObjectMapper mapper = new ObjectMapper();
 		
-		UsuarioDTO usuario = new UsuarioDTO("Saulo Brust - Teste", "brust3", "1234");
-		ClassificacaoDTO classificacao = new ClassificacaoDTO(1125L, 53L, 17L);
+		UsuarioDTO usuario = new UsuarioDTO("Saulo Brust - Teste - 1", "brust.1", "1234");
+		ClassificacaoDTO classificacao = new ClassificacaoDTO(455L, 33L, 4L);
 		usuario.addClassificacao(classificacao);
 		String request = mapper.writeValueAsString(usuario);
-		String grupoEconomico = "13";
+		String grupoEconomico = "2";
 		
 		String resultAssume = apiCall.get("/session/" + grupoEconomico, null, consumer, accessToken);
 		System.out.println(resultAssume);
