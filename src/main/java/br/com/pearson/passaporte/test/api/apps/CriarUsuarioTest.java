@@ -13,14 +13,14 @@ import br.com.pearson.passaporte.test.api.dto.UsuarioDTO;
 
 public class CriarUsuarioTest {
 	
-	public static final String TOKEN = "0018eb71-f3f6-4272-a04a-fcd35b94780c";
-	public static final String SECRET = "VgtiaG%2FvDDAije1%2FkbwPdYMmnaDEA9hvKWWh4cGENAPyj1B%2BNrD1nzSu0Y%2BpH%2FqL5Zw6YRdsZayUhtzjCRYu2QtTNi4rh8QgpPmziIaVXTY%3D";
+	public static final String TOKEN = "aa7088cf-f46e-47d2-83e0-f44a8b14436e";
+	public static final String SECRET = "%2Bcp3B%2B18i8WpqqGL%2FCygPk3a5wWhYXDpyjTJsEglzPj%2BINHCAKJalPN45nkWda4tIAGMzpFa60DyFx72X0fmd%2FiQrd5JLKDRyY3LmTqSsKI%3D";
 	public static final String BASE_URL = "http://coc.dclick.com.br/giul/api";
 	
-	public static final Long GRUPO_ECONOMICO_ID = 13L;
-	public static final Long ESCOLA_ID = 16L;
-	public static final Long ESTRUTURA_ID = 1175L;
-	public static final Long PERFIL_ESCOLA_ID = 31L;
+	public static final Long GRUPO_ECONOMICO_ID = 1L;
+	public static final Long ESCOLA_ID = 1L;
+	public static final Long ESTRUTURA_ID = 17L;
+	public static final Long PERFIL_ESCOLA_ID = 1L;
 
 	public static void main(String[] args) throws Exception {
 		APICall apiCall = new APICall(BASE_URL);
@@ -28,8 +28,8 @@ public class CriarUsuarioTest {
 		OAuthToken accessToken = new OAuthToken(TOKEN, SECRET, TokenType.ACCESS);
 		ObjectMapper mapper = new ObjectMapper();
 		
-		UsuarioDTO usuario = new UsuarioDTO("Saulo Brust - Teste - 1", "brust.2", "1234");
-		ClassificacaoDTO classificacao = new ClassificacaoDTO(ESTRUTURA_ID, PERFIL_ESCOLA_ID, ESCOLA_ID);
+		UsuarioDTO usuario = new UsuarioDTO("Saulo Brust - Teste - 1", "brust.20", "1234");
+		ClassificacaoDTO classificacao = new ClassificacaoDTO(ESCOLA_ID, ESTRUTURA_ID, PERFIL_ESCOLA_ID);
 		usuario.addClassificacao(classificacao);
 		String request = mapper.writeValueAsString(usuario);
 		

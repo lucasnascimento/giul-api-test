@@ -6,11 +6,11 @@ public class ClassificacaoDTO {
 	private ObjectId perfilEscola;
 	private ObjectId escola;
 	
-	public ClassificacaoDTO(Long estrutra, Long perfilEscola, Long escola) {
+	public ClassificacaoDTO( Long escola, Long estrutra, Long perfilEscola) {
 		super();
-		this.estrutura = new ObjectId(estrutra);
-		this.perfilEscola = new ObjectId(perfilEscola);
 		this.escola = new ObjectId(escola);
+		this.estrutura = new ObjectId(estrutra);		
+		this.perfilEscola = new ObjectId(perfilEscola);		
 	}
 
 	public ObjectId getEstrutura() {
