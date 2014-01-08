@@ -25,6 +25,7 @@ public class UsuarioDTO {
 		this.login = login;
 		this.password = password;
 	}
+		
 	
 	public void addClassificacao(ClassificacaoDTO classificacao) {
 		classificacoes.add(classificacao);

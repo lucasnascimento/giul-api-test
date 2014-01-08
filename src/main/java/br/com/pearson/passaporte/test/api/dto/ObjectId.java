@@ -4,6 +4,10 @@ public class ObjectId {
 
 	private Long id;
 	
+	public ObjectId(){
+		super();
+	}
+	
 	public ObjectId(Long id) {
 		super();
 		this.id = id;

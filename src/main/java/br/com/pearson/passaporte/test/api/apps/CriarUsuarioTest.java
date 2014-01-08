@@ -1,5 +1,11 @@
 package br.com.pearson.passaporte.test.api.apps;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ArrayBlockingQueue;
+
+import org.codehaus.jackson.map.DeserializationConfig.Feature;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.util.MultiValueMap;
@@ -19,7 +25,7 @@ public class CriarUsuarioTest {
 	
 	public static final Long GRUPO_ECONOMICO_ID = 2L;
 	public static final Long ESCOLA_ID = 6L;
-	public static final Long ESTRUTURA_ID = 1341L;
+	public static final Long ESTRUTURA_ID = 1547L;
 	public static final Long PERFIL_ESCOLA_ID = 28L;
 
 	public static void main(String[] args) throws Exception {
@@ -31,13 +37,14 @@ public class CriarUsuarioTest {
 		
 		//Classe utilitária que será responsável pela conversão de JSON para objeto e vice-versa - API JACKSON
 		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		
 		//Setup do GRUPO ECONOMICO, necessário passar em todos os HEADER
 		MultiValueMap<String, String> headers = new HttpHeaders();
 		headers.add("X-GRUPO-ECONOMICO", GRUPO_ECONOMICO_ID.toString());		
 		
 		//Instânciando um novo usuário
-		UsuarioDTO usuario = new UsuarioDTO("Lucas Nascimento", "lucas.nascimento123", "1234");
+		UsuarioDTO usuario = new UsuarioDTO("Aaaaaaa", "a1", "1234");
 		ClassificacaoDTO classificacao = new ClassificacaoDTO(ESCOLA_ID, ESTRUTURA_ID, PERFIL_ESCOLA_ID);
 		usuario.addClassificacao(classificacao);
 
@@ -52,9 +59,10 @@ public class CriarUsuarioTest {
 		
 		//Recuperando esse usuário que foi inserido através da API -ara exemplificar e já transformando no DTO
 		UsuarioDTO usuarioInseridoFromAPI = mapper.readValue( apiCall.get("/usuario/"+ usuarioInserido.getId(), null, consumer, accessToken), UsuarioDTO.class);
+		usuarioInseridoFromAPI.setClassificacoes(new ArrayList<ClassificacaoDTO>());
 		
 		//Criando uma nova Classificiação
-		ClassificacaoDTO classificacaoNova = new ClassificacaoDTO(ESCOLA_ID, ESTRUTURA_ID, PERFIL_ESCOLA_ID);
+		ClassificacaoDTO classificacaoNova = new ClassificacaoDTO(6l, 1574l, 28l);
 		
 		//Adicionando no Usuário para posterior envio do usuário
 		usuarioInseridoFromAPI.addClassificacao(classificacaoNova);
@@ -67,10 +75,11 @@ public class CriarUsuarioTest {
 		UsuarioDTO usuarioAlterado = mapper.readValue( resultUpdate, UsuarioDTO.class);
 		System.out.println(usuarioAlterado);
 		
-		//Chamando API para excluir o usuário que acabou de ser adicionado e alterado.
-		String resultDelete = apiCall.delete("/usuario"+usuarioAlterado.getId(), resultUpdate, null, consumer, accessToken, headers);
-		System.out.println(resultDelete);
+		Map<String, String> parametros = new HashMap<String, String>();
+		parametros.put("ids", ""+usuarioAlterado.getId());
 		
-
+		//Chamando API para excluir o usuário que acabou de ser adicionado e alterado.
+		String resultDelete = apiCall.delete("/usuario", null, parametros, consumer, accessToken, headers);
+		System.out.println(resultDelete);
 	}
 }

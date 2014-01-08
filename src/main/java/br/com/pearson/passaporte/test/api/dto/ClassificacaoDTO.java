@@ -12,6 +12,10 @@ public class ClassificacaoDTO {
 		this.estrutura = new ObjectId(estrutra);		
 		this.perfilEscola = new ObjectId(perfilEscola);		
 	}
+	
+	public ClassificacaoDTO(){
+		super();
+	}
 
 	public ObjectId getEstrutura() {
 		return estrutura;
