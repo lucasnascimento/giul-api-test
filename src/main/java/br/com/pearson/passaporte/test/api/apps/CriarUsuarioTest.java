@@ -51,7 +51,7 @@ public class CriarUsuarioTest {
 		UsuarioDTO usuarioInserido = mapper.readValue(result, UsuarioDTO.class);
 		
 		//Recuperando esse usuário que foi inserido através da API -ara exemplificar e já transformando no DTO
-		UsuarioDTO usuarioInseridoFromAPI = mapper.readValue( apiCall.get("/usuario/"+ usuarioInserido, null, consumer, accessToken), UsuarioDTO.class);
+		UsuarioDTO usuarioInseridoFromAPI = mapper.readValue( apiCall.get("/usuario/"+ usuarioInserido.getId(), null, consumer, accessToken), UsuarioDTO.class);
 		
 		//Criando uma nova Classificiação
 		ClassificacaoDTO classificacaoNova = new ClassificacaoDTO(ESCOLA_ID, ESTRUTURA_ID, PERFIL_ESCOLA_ID);
@@ -68,7 +68,7 @@ public class CriarUsuarioTest {
 		System.out.println(usuarioAlterado);
 		
 		//Chamando API para excluir o usuário que acabou de ser adicionado e alterado.
-		String resultDelete = apiCall.delete("/usuario", resultUpdate, null, consumer, accessToken, headers);
+		String resultDelete = apiCall.delete("/usuario"+usuarioAlterado.getId(), resultUpdate, null, consumer, accessToken, headers);
 		System.out.println(resultDelete);
 		
 
